@@ -1,8 +1,18 @@
 import React from 'react';
 import DayOfWeek from './day-of-week';
-import CalendarBox from './calendar-box'
+import CalendarBox from './calendar-box';
 
 export default function calendarWrapper(props) {
+    const renderCalendarBoxes = () => {
+        const calendarBoxesArray = []
+        for (let i=0; i<42; i++) {
+            calendarBoxesArray.push(
+                <CalendarBox />
+            )
+        }
+        return calendarBoxesArray
+    }
+
     return (
         <div className="calendar-wrapper">
             <DayOfWeek day="Sunday"/>
@@ -12,7 +22,7 @@ export default function calendarWrapper(props) {
             <DayOfWeek day="Thursday"/>
             <DayOfWeek day="Friday"/>
             <DayOfWeek day="Saturday"/>
-            <CalendarBox />
+            {(renderCalendarBoxes())}
         </div>
     )
 }
